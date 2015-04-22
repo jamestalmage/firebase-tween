@@ -1,0 +1,26 @@
+<h1>No Debounce</h1>
+<p>
+  Simplest solution. Firebase gets updated as fast as possible (about every 50ms).
+  This wastes a <em>lot</em> of data as Firebase madly tries to sync two fields (the x and y coordinate).
+  An individual user can rack up a few megabytes of transfer in just a few short minutes of dragging these
+  squares around. As your Firebase app scales to hundreds/thousands of users, you risk prematurely exceeding
+  the limits of the free/inexpensive firebase data tiers.
+</p>
+<p>
+  This is not an issue for text field inputs, as the average typist only types a new character every 300ms.
+  Still, you can set long debounce times on text fields with minimal impact user experience.
+  Also, blur events provide natural `$save()` triggers, and newer versions of angular have good debounce
+  algorithms built in to the text input directive.
+</p>
+<p>
+  Without any type of debounce, things can get unnecessarily CPU intensive. In this simple example, the impact
+  is fairly negligible; Angular is not dirty checking many values, and the simple x/y coordinates are not a very
+  substantial payload.  However, in real world applications I have quickly run in to a fair amount of
+  <a href="https://www.youtube.com/watch?v=n8ep4leoN9A">jank</a> when syncing a larger set of more complex data
+  structures.
+</p>
+<p>
+  Lastly, we don't really gain anything from wasting so much data.
+  Despite the rapid updating, things are not very smooth on the <em highlight="receiving">receiving</em> side either.
+  Network latency/jitter ends up creating a very janky feel for whoever is watching us drag our squares around remotely.
+</p>

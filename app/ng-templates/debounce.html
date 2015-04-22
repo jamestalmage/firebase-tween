@@ -1,0 +1,18 @@
+<h1>Debounce</h1>
+<p>
+  To save bandwidth and smooth performance, we introduce a debounce function that limits the rate at which
+  $save() is called on the angularFire collection.
+</p>
+<p>
+  This works to reduce data costs, and frees up CPU cycles on both the <em highlight="sending">sending</em> and
+  <em highlight="receiving">receiving</em> sides.
+</p>
+<p>
+  In this example, $save() is called at most once every 200ms (a 4x reduction in transfers).
+  The receiving end sees movement that is as smooth or smoother than it was when we weren't doing any rate limiting
+</p>
+<p>
+  The biggest problem here is that the <em highlight="sending">sending</em> side  experiences
+  a number of visual glitches. This is due to the delayed $save() call - it causes scope to get updated briefly with
+  stale data.
+</p>

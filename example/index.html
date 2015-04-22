@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org" id="ng-app" ng-app="app">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="firebase-tween.js"></script>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/github.min.css">
+</head>
+<body ng-controller="MainCtrl">
+
+<div style="position: relative; width: 100%; text-align: center">
+  <small>
+    Open This Page in Two Windows Side By Side <br/>
+    Terms<br/>
+    <span highlight="sending"><em>sending side:</em> person dragging.</span><br/>
+    <span highlight="receiving"><em>receiving side:</em> person watching the drag. </span>
+  </small>
+</div>
+
+<br/>
+<br/>
+
+<div style="position: relative; width: 100%; z-index: 5">
+
+  <path-button set-path="setPath(path)" path="no-debounce">No Debounce</path-button>
+  <path-button set-path="setPath(path)" path="debounce">Debounce</path-button>
+  <path-button set-path="setPath(path)" path="filter">Debounce &amp; Filter</path-button>
+  <path-button set-path="setPath(path)" path="tween">Debounce, Filter &amp; Tween</path-button>
+  <path-button set-path="setPath(path)" path="fast-tween">Faster</path-button>
+  <div style="float:right; text-align: right;">
+    <button ng-click="addSquare()">Add Square</button>
+    <button ng-click="clearSquares()">Clear Squares</button>
+  </div>
+
+</div>
+<ng-include ng-if="path" src="path + '.html'"></ng-include>
+<ng-include ng-if="path" src="path + '_code.html'"></ng-include>
+
+<div ng-view></div>
+
+</body>
+</html>

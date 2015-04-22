@@ -1,0 +1,5 @@
+
+<div ng-repeat="position in squares"
+     style="position:absolute; width:100px; height:100px; background-color:blue; color: #ffffff; text-align: center; "
+     ng-style="{left:position.x+'px',top:position.y+'px'}"
+     draggable-square="saveSquare(position)" x="position.x" y="position.y"><p style="position:relative; top:25%">Drag Me!</p></div>

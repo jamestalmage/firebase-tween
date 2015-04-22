@@ -1,0 +1,8 @@
+*.DS_Store
+.idea/
+/coverage/
+npm-debug.log
+node_modules/
+bower_components/
+build/
+libpeerconnection.log

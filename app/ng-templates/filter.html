@@ -1,0 +1,11 @@
+<h1>Debounce with Filter</h1>
+<p>We can get rid of the visual glitches on the <em highlight="sending">sending side</em> pretty easy. When firebase
+  triggers an $$updated event on the array - we check to make sure we don't have a pending save.
+  We are going to overwrite anyways, so lets just discard the data.
+</p>
+<p>
+  Now the <em highlight="sending">sending</em> side is super smooth! Only thing left is to try and smooth out the
+  <em highlight="receiving">receiving</em> side.
+</p>
+
+<div ng-include="debounce_and_filter_code.html"></div>

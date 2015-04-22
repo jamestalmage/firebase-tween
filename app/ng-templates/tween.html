@@ -1,0 +1,22 @@
+<h1>Debounce with Filter And Tween</h1>
+<p>
+  Instead of burning through our bandwidth trying to get fast enough updates to make the
+  <em highlight="receiving">receiving</em> side look smooth, we take slower updates and fake a smooth animation
+  with tweening.
+</p>
+<p>
+  This example has an even longer debounce than any previous example(400ms),
+  saving more bandwidth than any other method. Even so, it appears smoother than previous methods.
+  Note that it does introduce a noticeable delay when you view two instances side by side, but that is probably
+  not your intended use case. If a separate person was viewing your actions remotely, they likely would not notice
+  the delay. However, such a long debounce would be poor for latency critical games (first person shooter, etc).
+</p>
+<p>
+  The tweening could probably be improved in a few ways (maybe a better easing function or predictive overshooting).
+  But it is already significantly better than any other solution.
+</p>
+<p>
+  Also, if you can detect the presence of someone watching your edits,
+  you could dynamically decrease the debounce interval down to something like
+  <a ng-click="setPath('/faster')" href="">150ms.</a>
+</p>

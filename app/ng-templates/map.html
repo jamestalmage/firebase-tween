@@ -1,0 +1,11 @@
+<ui-gmap-google-map center="map.center" zoom="map.zoom" pan="true" draggable="true">
+  <ui-gmap-marker
+    ng-repeat="marker in markers"
+    idKey='marker.$id'
+    coords='marker.position'
+    options='{draggable:true}'
+    events="{position_changed:saveMarker}"
+    >
+  </ui-gmap-marker>
+
+</ui-gmap-google-map>
