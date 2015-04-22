@@ -9,6 +9,7 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-open');
   grunt.loadNpmTasks('grunt-angular-templates');
+  grunt.loadNpmTasks('grunt-gh-pages');
 
   grunt.initConfig({
 
@@ -86,6 +87,13 @@ module.exports = function(grunt){
           'concat:example'
         ]
       }
+    },
+
+    'gh-pages': {
+      options: {
+        base: 'build/example'
+      },
+      src: ['**']
     }
   });
 
